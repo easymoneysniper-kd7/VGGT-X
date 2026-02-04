@@ -11,6 +11,7 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2509.25191-b31b1b.svg)](http://arxiv.org/abs/2509.25191)
 [![](https://img.shields.io/badge/%F0%9F%9A%80%20-Project%20Page-blue)](https://dekuliutesla.github.io/vggt-x.github.io/)
+![GitHub Repo stars](https://img.shields.io/github/stars/Linketic/VGGT-X)
 
 </div>
 
