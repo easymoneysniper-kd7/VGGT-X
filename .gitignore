@@ -1,5 +1,6 @@
 .hydra/
 output/
+.docker-cache/
 ckpt/
 # Byte-compiled / optimized / DLL files
 __pycache__/

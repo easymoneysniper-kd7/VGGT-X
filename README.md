@@ -52,6 +52,29 @@ Now, put the image collection to path/to/your/scene/images. Please ensure that t
 python demo_colmap.py --scene_dir /YOUR/SCENE_DIR --shared_camera --use_ga
 ```
 
+### Docker
+
+If you prefer running the demo in Docker, this repo now includes a CUDA-based image and a helper script:
+
+```bash
+docker build -t vggt-x:cuda121 -f docker/Dockerfile .
+bash docker/run_vggtx_scene.sh /YOUR/SCENE_DIR
+```
+
+The helper script mounts the project and scene directory into the container, enables GPU access, and runs:
+
+```bash
+python demo_colmap.py --scene_dir /YOUR/SCENE_DIR --shared_camera --use_ga
+```
+
+After reconstruction, the helper script also syncs the COLMAP sparse result into `./output/<scene_name>/`, including `sparse/0`, `matches.pt`, and a symlink to the input `images/`.
+
+You can override defaults through environment variables, for example:
+
+```bash
+GPU_DEVICES=0 CHUNK_SIZE=128 MAX_QUERY_PTS=2048 bash docker/run_vggtx_scene.sh /YOUR/SCENE_DIR
+```
+
 The reconstruction result (camera parameters and 3D points) will be automatically saved under `/YOUR/SCENE_DIR_vggt_x/sparse/` in the COLMAP format (currently only supports `PINHOLE` camera type), such as:
 
 ``` 
@@ -172,4 +195,3 @@ This repo benefits from [VGGT](https://github.com/facebookresearch/vggt), [VGGT-
 
 ## License
 See the [LICENSE](./LICENSE.txt) file for details about the license under which this code is made available.
-
